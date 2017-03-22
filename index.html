@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Joe's Number Guesser</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+</head>
+<body>
+  <header role="Title Banner">
+    <div class="banner">
+      <h1>
+        <span class="title-number">Number</span>
+        <span class="title-guesser">Guesser</span>
+      </h1>
+    </div>
+  </header>
+  <main>
+    <input class="user-guess" type="text" placeholder="Enter your guess">
+    <section class="top-buttons">
+      <button id="guess-button">
+        Guess
+      </button>
+      <button id="clear-button">
+        Clear
+      </button>
+    </section>
+    <section class="feedback">
+<!--       <p class="last-guess">Your last guess was</p> -->
+      <p class="last-guess">Let's play a game!</p>
+<!--       <p class="guess-number">25</p> -->
+      <p class="arrow-guess">&#x21E7; Guess a number &#x21E7;</p>
+<!--       <p class="high-low-text">That is too high</p> -->
+      <p class="high-low-text">Between 1 and 100</p>
+    </section>
+    <section>
+      <button id="reset-button">
+        Reset
+      </button>
+    </section>
+  </main>
+  <script url="script.js"></script>
+</body>
+</html>
