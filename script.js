@@ -30,11 +30,17 @@ userGuess.addEventListener('keyup', function () {
   };
 });
 
-userGuess.addEventListener('mouseleave', function () {
+userGuess.addEventListener('blur', function () {
   if (parseInt(userGuess.value) > 100) {
-    alert('ERROR!! Number is above the available range.  Please clear the number and guess again.');
+    alert('ERROR!! Number is above the available range.  Please guess again.');
+    userGuess.value = "";
+    guessButton.disabled = true;
+    clearButton.disabled = true;
   } else if (parseInt(userGuess.value) < 1) {
-    alert('ERROR!! Number is below the available range.  Please clear the number and guess again.');
+    alert('ERROR!! Number is below the available range.  Please guess again.');
+    userGuess.value= "";
+    guessButton.disabled = true;
+    clearButton.disabled = true;
   };
 });
 
