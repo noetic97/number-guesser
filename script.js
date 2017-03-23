@@ -33,12 +33,12 @@ userGuess.addEventListener('keyup', function () {
 userGuess.addEventListener('blur', function () {
   if (parseInt(userGuess.value) > 100) {
     alert('ERROR!! Number is above the available range.  Please guess again.');
-    userGuess.value = "";
+    userGuess.value = '';
     guessButton.disabled = true;
     clearButton.disabled = true;
   } else if (parseInt(userGuess.value) < 1) {
     alert('ERROR!! Number is below the available range.  Please guess again.');
-    userGuess.value= "";
+    userGuess.value = '';
     guessButton.disabled = true;
     clearButton.disabled = true;
   };
@@ -49,11 +49,16 @@ guessButton.addEventListener('click', function () {
   var userGuessNumber = parseInt(userGuess.value);
   guessNumber.className = 'guess-number';
   lastGuessText.innerText = 'Your last guess was';
-  if (userGuessNumber < generatedNumber) {
+  if (isNaN(parseInt(userGuess.value))) {
+    alert('You must enter a number.  Please guess again.');
+    userGuess.value = '';
+    guessNumber.innerText = 'Invalid';
+    highLowGuessText.innerText = 'Try again!';
+  } else if (userGuessNumber < generatedNumber) {
     highLowGuessText.innerText = 'That is too low';
   } else if (userGuessNumber > generatedNumber) {
     highLowGuessText.innerText = 'That is too high';
-  } else {
+  } else if (userGuessNumber === generatedNumber) {
     highLowGuessText.innerText = 'BOOM!';
     highLowGuessText.className = 'correct-guess';
     setTimeout(function () {
