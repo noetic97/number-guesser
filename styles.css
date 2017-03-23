@@ -47,7 +47,7 @@ button {
   font-weight: 100;
 }
 
-.reset-button {
+#reset-button {
   padding: 5px 125px;
 }
 
@@ -70,6 +70,14 @@ button:hover {
   font-size: 8em;
   margin: -20px;
   padding: 0;
+  font-weight: 300;
+}
+
+.correct-guess {
+  color: #eb008b;
+  font-size: 6em;
+  margin: -20px;
+  padding: 0 0 20px 0 ;
   font-weight: 300;
 }
 

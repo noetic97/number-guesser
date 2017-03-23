@@ -5,40 +5,57 @@ var guessNumber = document.querySelector('.arrow-guess');
 var userGuess = document.querySelector('.user-guess');
 var lastGuessText = document.querySelector('.last-guess');
 var highLowGuessText = document.querySelector('.high-low-text');
-
-guessButton.disabled = true;
-clearButton.disabled = true;
-resetButton.disabled = true;
+var userGuessNumber = parseInt(userGuess.value);
 
 function initialNumber() {
-  return Math.floor(Math.random() * 99 + 1);
+  return Math.floor(Math.random() * 100 + 1);
 };
 
-// alert(initialNumber());
+var generatedNumber = initialNumber();
+
+console.log(generatedNumber);
 
 userGuess.addEventListener('keypress', function () {
   guessButton.disabled = false;
   clearButton.disabled = false;
 });
 
-guessButton.addEventListener('click', function () {
-  guessNumber.innerText = userGuess.value;
-  guessNumber.classList.add('guess-number');
-
-  lastGuessText.innerText = 'Your last guess was';
-  if (userGuess.value < initialNumber()) {
-    highLowGuessText.innerText = 'That is too low';
-  } else if (userGuess.value > initialNumber()) {
-    highLowGuessText.innerText = 'That is too high';
+userGuess.addEventListener('keyup', function () {
+  if (userGuess.value === '') {
+    guessButton.disabled = true;
+    clearButton.disabled = true;
   } else {
-    highLowGuessText.innerText = 'BOOM!';
+    guessButton.disabled = false;
+    clearButton.disabled = false;
   };
 });
 
+guessButton.addEventListener('click', function () {
+  guessNumber.innerText = userGuess.value;
+  var userGuessNumber = parseInt(userGuess.value);
+  guessNumber.className = 'guess-number';
+  lastGuessText.innerText = 'Your last guess was';
+  if (userGuessNumber < generatedNumber) {
+    highLowGuessText.innerText = 'That is too low';
+  } else if (userGuessNumber > generatedNumber) {
+    highLowGuessText.innerText = 'That is too high';
+  } else {
+    highLowGuessText.innerText = 'BOOM!';
+    highLowGuessText.className = 'correct-guess';
+    setTimeout(function () {
+      alert('You won the game!  Press reset to play again');
+    }, 1500);
+  };
+
+  resetButton.disabled = false;
+});
+
 clearButton.addEventListener('click', function () {
-  alert('hello');
+  userGuess.value = '';
+  clearButton.disabled = true;
+  guessButton.disabled = true;
 });
 
 resetButton.addEventListener('click', function () {
-  alert('YO!');
+  window.location.reload();
 });
