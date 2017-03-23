@@ -30,6 +30,14 @@ userGuess.addEventListener('keyup', function () {
   };
 });
 
+userGuess.addEventListener('mouseleave', function () {
+  if (parseInt(userGuess.value) > 100) {
+    alert('ERROR!! Number is above the available range.  Please clear the number and guess again.');
+  } else if (parseInt(userGuess.value) < 1) {
+    alert('ERROR!! Number is below the available range.  Please clear the number and guess again.');
+  };
+});
+
 guessButton.addEventListener('click', function () {
   guessNumber.innerText = userGuess.value;
   var userGuessNumber = parseInt(userGuess.value);
